@@ -45,10 +45,9 @@ export const Navbar = ({ links = [] }) => {
           className="mobile-menu-button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
           <img
             src={isMobileMenuOpen ? CloseIcon : MenuIcon}
-            alt={isMobileMenuOpen ? "Dark mode" : "Light mode"}
+            alt={isMobileMenuOpen ? "Close menu" : "Open menu"}
             width="24"
             height="24"
           />
