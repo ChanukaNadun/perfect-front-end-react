@@ -23,15 +23,15 @@ export const Footer = () => {
           <div className="footer-links">
             <div className="link-group">
               <h4>Product</h4>
-              {/* <ul>
+              <ul>
                 <li>
-                  <a href="#">Features</a>
+                  <a href="/">Features</a>
                 </li>
                 <li>
-                  <a href="#">Pricing</a>
+                  <a href="/">Pricing</a>
                 </li>
                 <li>
-                  <a href="#">Documentation</a>
+                  <a href="/">Documentation</a>
                 </li>
               </ul>
             </div>
@@ -40,13 +40,13 @@ export const Footer = () => {
               <h4>Company</h4>
               <ul>
                 <li>
-                  <a href="#">About</a>
+                  <a href="/">About</a>
                 </li>
                 <li>
-                  <a href="#">Careers</a>
+                  <a href="/">Careers</a>
                 </li>
                 <li>
-                  <a href="#">Contact</a>
+                  <a href="/">Contact</a>
                 </li>
               </ul>
             </div>
@@ -55,15 +55,15 @@ export const Footer = () => {
               <h4>Legal</h4>
               <ul>
                 <li>
-                  <a href="#">Privacy</a>
+                  <a href="/">Privacy</a>
                 </li>
                 <li>
-                  <a href="#">Terms</a>
+                  <a href="/">Terms</a>
                 </li>
                 <li>
-                  <a href="#">Cookies</a>
+                  <a href="/">Cookies</a>
                 </li>
-              </ul> */}
+              </ul>
             </div>
           </div>
         </div>
