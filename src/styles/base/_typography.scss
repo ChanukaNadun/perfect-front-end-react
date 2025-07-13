@@ -1,0 +1,97 @@
+// Font families
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+$font-secondary: 'Georgia', serif;
+$font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+// Font weights
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
+// Base typography
+body {
+  font-family: $font-primary;
+  font-weight: $font-regular;
+  line-height: 1.6;
+  color: inherit;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+  font-weight: $font-semibold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: inherit;
+}
+
+h1 {
+  font-size: 2.5rem;
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+// Paragraphs
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--primary);
+  }
+}
+
+// Special text classes
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  opacity: 0.7;
+}
+
+// Utility classes
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Responsive typography
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}

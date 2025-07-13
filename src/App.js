@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "./context/ThemeContext";
+import { Navbar } from "./components/common/Navbar";
+import { Card } from "./components/common/Card";
+import { Button } from "./components/common/Button";
+import { Layout } from "./components/layout/Layout";
+import "./styles/App.scss";
 
-function App() {
+const App = () => {
+  const navLinks = [
+    { href: "#features", label: "Features" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#about", label: "About" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Layout>
+        <Navbar links={navLinks} />
+        <main>
+          <section className="hero">
+            <Card hoverEffect>
+              <h1>Welcome to Our App</h1>
+              <p>
+                Experience the perfect blend of dark and light modes with our
+                responsive components.
+              </p>
+              <div className="hero-actions">
+                <Button size="large">Get Started</Button>
+                <Button variant="secondary" size="large">
+                  Learn More
+                </Button>
+              </div>
+            </Card>
+          </section>
+
+          <section className="features">
+            <h2>Features</h2>
+            <div className="feature-grid">
+              {[1, 2, 3].map((item) => (
+                <Card key={item} title={`Feature ${item}`}>
+                  <p>
+                    This is an amazing feature that works in both light and dark
+                    modes.
+                  </p>
+                  <Button>Try it</Button>
+                </Card>
+              ))}
+            </div>
+          </section>
+        </main>
+      </Layout>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
