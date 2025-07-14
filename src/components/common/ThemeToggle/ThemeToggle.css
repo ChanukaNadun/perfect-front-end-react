@@ -1,0 +1,47 @@
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Dark theme specific adjustments */
+.app.dark .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Animation for theme switch */
+.theme-toggle img {
+  will-change: transform;
+}
+
+.theme-toggle:active img {
+  transform: scale(0.9);
+}
+
+.theme-toggle img {
+  transition: transform 0.5s ease;
+}
+
+.theme-toggle:hover img {
+  transform: rotate(15deg);
+}
