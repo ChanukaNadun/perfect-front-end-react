@@ -23,15 +23,20 @@ export const Navbar = ({ links = [] }) => {
     <nav
       style={{
         backgroundColor: isScrolled ? colors.cardBg : "transparent",
-        boxShadow: isScrolled ? `0 2px 10px rgba(0, 0, 0, 0.1)` : "none",
+        boxShadow: isScrolled ? `0 2px 10px ${colors.border}` : "none",
+        color: colors.text,
       }}
+      data-theme={colors.mode}
+      // className={`navbar ${isScrolled ? "scrolled" : ""}`}
     >
       <div className="nav-container">
-        <div className="nav-brand">YourLogo</div>
+        <div className="nav-brand" style={{ color: colors.text }}>
+          YourLogo
+        </div>
 
         <div className="nav-links">
           {links.map((link) => (
-            <a key={link.href} href={link.href}>
+            <a key={link.href} href={link.href} style={{ color: colors.text }}>
               {link.label}
             </a>
           ))}
@@ -45,6 +50,7 @@ export const Navbar = ({ links = [] }) => {
         <button
           className="mobile-menu-button"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
           <img
             src={isMobileMenuOpen ? CloseIcon : MenuIcon}
@@ -57,9 +63,20 @@ export const Navbar = ({ links = [] }) => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu">
+        <div
+          className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`}
+          style={{
+            backgroundColor: colors.cardBg,
+            color: colors.text,
+          }}
+        >
           {links.map((link) => (
-            <a key={link.href} href={link.href}>
+            <a
+              key={link.href}
+              href={link.href}
+              style={{ color: colors.text }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               {link.label}
             </a>
           ))}

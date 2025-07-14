@@ -1,4 +1,5 @@
 import { useThemeColors } from "../../../hooks/useTheme";
+import "./Card.css";
 
 export const Card = ({
   children,

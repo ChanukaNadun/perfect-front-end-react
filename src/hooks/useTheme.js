@@ -16,7 +16,7 @@ export const useThemeColors = () => {
       primary: "#4cc9f0",
       secondary: "#f72585",
       background: "#121212",
-      text: "#f8f9fa",
+      text: "#ffffff",
       cardBg: "#1e1e1e",
       border: "#2d2d2d",
     },
