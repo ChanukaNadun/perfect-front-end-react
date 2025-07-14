@@ -1,4 +1,5 @@
 import { useThemeColors } from "../../../hooks/useTheme";
+import './Footer.css';
 
 export const Footer = () => {
   const colors = useThemeColors();

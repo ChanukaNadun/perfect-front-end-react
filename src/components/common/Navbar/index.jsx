@@ -4,6 +4,7 @@ import { Button } from "../Button";
 import { ThemeToggle } from "../ThemeToggle";
 import MenuIcon from "../../../assets/icons/MenuIcon.png"; 
 import CloseIcon from "../../../assets/icons/CloseIcon.png"; 
+import "./Navbar.css";
 
 export const Navbar = ({ links = [] }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

@@ -3,7 +3,7 @@ import { Navbar } from "./components/common/Navbar";
 import { Card } from "./components/common/Card";
 import { Button } from "./components/common/Button";
 import { Layout } from "./components/layout/Layout";
-import "./styles/App.scss";
+import "./App.css"
 
 const App = () => {
   const navLinks = [
