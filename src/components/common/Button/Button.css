@@ -1,0 +1,127 @@
+/* Base button styles - scoped to .button class */
+.button {
+  --button-hover-brightness: 1.05;
+  --button-active-transform: translateY(1px);
+  --button-hover-transform: translateY(-1px);
+  
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+  text-align: center;
+  margin: 0;
+  appearance: none;
+}
+
+/* Disabled state */
+.button:disabled {
+  pointer-events: none;
+}
+
+/* Focus state for accessibility */
+.button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Hover effect */
+.button:not(:disabled):hover {
+  filter: brightness(var(--button-hover-brightness));
+  transform: var(--button-hover-transform);
+}
+
+/* Active effect */
+.button:not(:disabled):active {
+  transform: var(--button-active-transform);
+}
+
+/* Ripple effect */
+.button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 1%, transparent 1%) center/15000%;
+  opacity: 0;
+  transition: opacity 0.5s, background-size 0.5s;
+}
+
+.button:not(:disabled):active::after {
+  background-size: 100%;
+  opacity: 1;
+  transition: background-size 0s;
+}
+
+/* Size variants */
+.button--small {
+  min-height: 32px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.button--medium {
+  min-height: 40px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.button--large {
+  min-height: 48px;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Icon-only modifier */
+.button--icon-only {
+  aspect-ratio: 1/1;
+  padding: 0.5rem !important; /* Override size padding */
+}
+
+.button--icon-only.button--small {
+  min-width: 32px;
+}
+
+.button--icon-only.button--medium {
+  min-width: 40px;
+}
+
+.button--icon-only.button--large {
+  min-width: 48px;
+}
+
+/* Full-width modifier */
+.button--full-width {
+  display: flex;
+  width: 100%;
+}
+
+/* Dark mode adjustments */
+.app.dark .button:not(:disabled):hover {
+  --button-hover-brightness: 1.15;
+}
+
+/* Child element adjustments */
+.button > svg,
+.button > img {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+.button--icon-only > svg,
+.button--icon-only > img {
+  width: 1.25em;
+  height: 1.25em;
+  margin: 0;
+}

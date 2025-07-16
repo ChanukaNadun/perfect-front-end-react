@@ -1,4 +1,5 @@
 import { useThemeColors } from "../../../hooks/useTheme";
+import "./Button.css";
 
 export const Button = ({
   children,
@@ -7,6 +8,7 @@ export const Button = ({
   onClick,
   disabled = false,
   fullWidth = false,
+  iconOnly = false,
   ...props
 }) => {
   const colors = useThemeColors();
@@ -19,13 +21,25 @@ export const Button = ({
   };
 
   const sizeStyles = {
-    small: { padding: "0.5rem 1rem", fontSize: "0.875rem" },
-    medium: { padding: "0.75rem 1.5rem", fontSize: "1rem" },
-    large: { padding: "1rem 2rem", fontSize: "1.125rem" },
+    small: {
+      padding: iconOnly ? "0.5rem" : "0.5rem 1rem",
+      fontSize: "0.875rem",
+    },
+    medium: {
+      padding: iconOnly ? "0.75rem" : "0.75rem 1.5rem",
+      fontSize: "1rem",
+    },
+    large: {
+      padding: iconOnly ? "1rem" : "1rem 2rem",
+      fontSize: "1.125rem",
+    },
   };
 
   return (
     <button
+      className={`button button--${size} ${
+        iconOnly ? "button--icon-only" : ""
+      } ${fullWidth ? "button--full-width" : ""}`}
       style={{
         ...baseStyle,
         ...sizeStyles[size],
@@ -34,6 +48,7 @@ export const Button = ({
       }}
       onClick={onClick}
       disabled={disabled}
+      aria-disabled={disabled}
       {...props}
     >
       {children}
