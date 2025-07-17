@@ -4,6 +4,9 @@ import { Card } from "./components/common/Card";
 import { Button } from "./components/common/Button";
 import { Layout } from "./components/layout/Layout";
 import "./App.css"
+import { TextField } from "./components/common/TextField";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
   const navLinks = [
@@ -47,6 +50,40 @@ const App = () => {
                 </Card>
               ))}
             </div>
+          </section>
+
+          <section className="features">
+            <h2>TextFields</h2>
+            {/* Basic usage */}
+            <TextField
+              id="email"
+              label="Email Address"
+              placeholder="Enter your email"
+              startAdornment={<FontAwesomeIcon icon={faSearch} />}
+              endAdornment={<span>@example.com</span>}
+            />
+            {/* With all props */}
+            {/* <TextField
+              id="password"
+              label="Password"
+              type="password"
+              variant="filled"
+              size="large"
+              fullWidth
+              error={errors.password}
+              helperText={
+                errors.password ? "Invalid password" : "Must be 8+ characters"
+              }
+              startAdornment={<LockIcon />}
+              endAdornment={
+                <button type="button" onClick={togglePasswordVisibility}>
+                  {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+                </button>
+              }
+              value={password}
+              onChange={handlePasswordChange}
+              onBlur={validatePassword}
+            /> */}
           </section>
         </main>
       </Layout>
