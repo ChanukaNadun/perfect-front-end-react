@@ -4,6 +4,7 @@ import { Card } from "./components/common/Card";
 import { Button } from "./components/common/Button";
 import { Layout } from "./components/layout/Layout";
 import "./App.css"
+import { TextField } from "./components/common/TextField";
 
 const App = () => {
   const navLinks = [
@@ -47,6 +48,28 @@ const App = () => {
                 </Card>
               ))}
             </div>
+          </section>
+
+          <section className="features">
+            <h2>TextFields</h2>
+            {/*  Basic usage */}
+            <TextField label="Email" id="email" />
+            {/* With error state */}
+            <TextField
+              label="Password"
+              id="password"
+              type="password"
+              error
+              helperText="Password must be 8 characters"
+            />
+            {/* With icons */}
+            <TextField
+              label="Search"
+              id="search"
+              // startAdornment={<SearchIcon />}
+            />
+            {/* Full width disabled field */}
+            <TextField label="Username" id="username" fullWidth disabled />
           </section>
         </main>
       </Layout>
