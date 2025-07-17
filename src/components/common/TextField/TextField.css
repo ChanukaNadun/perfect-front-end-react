@@ -1,0 +1,154 @@
+/* Base styles with CSS variables for better theming */
+.text-field {
+  --text-field-border-color: var(--border-color, #ced4da);
+  --text-field-focus-color: var(--primary-color, #3a86ff);
+  --text-field-error-color: var(--error-color, #dc3545);
+  --text-field-text-color: var(--text-color, #212529);
+  --text-field-bg-color: var(--background-color, #ffffff);
+  --text-field-disabled-bg: var(--disabled-bg, #e9ecef);
+  --text-field-padding-x: 0.75rem;
+  --text-field-padding-y: 0.5rem;
+  
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: inherit;
+  margin: 0.75rem 0;
+  gap: 0.5rem;
+}
+
+/* Size variants with consistent padding */
+.text-field--small {
+  --text-field-padding-x: 0.5rem;
+  --text-field-padding-y: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.text-field--medium {
+  --text-field-padding-x: 0.75rem;
+  --text-field-padding-y: 0.5rem;
+  font-size: 1rem;
+}
+
+.text-field--large {
+  --text-field-padding-x: 1rem;
+  --text-field-padding-y: 0.75rem;
+  font-size: 1.125rem;
+}
+
+/* Full width modifier */
+.text-field--full-width {
+  width: 100%;
+}
+
+/* Label styles */
+.text-field__label {
+  font-weight: 500;
+  transition: color 0.2s ease;
+  order: -1; /* Ensure label stays above input */
+}
+
+/* Input container with flex layout */
+.text-field__input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-height: calc(
+    (var(--text-field-padding-y) * 2) + 
+    1.5em /* line-height */ + 
+    2px /* borders */
+  );
+}
+
+/* Base input styles */
+.text-field__input {
+  flex: 1;
+  width: 100%;
+  padding: var(--text-field-padding-y) var(--text-field-padding-x);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5;
+  color: var(--text-field-text-color);
+  background-color: var(--text-field-bg-color);
+  border: 1px solid var(--text-field-border-color);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  appearance: none;
+}
+
+.text-field__input:focus {
+  outline: none;
+  border-color: var(--text-field-focus-color);
+  box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+}
+
+/* Variant styles */
+.text-field--outlined .text-field__input {
+  background-color: var(--text-field-bg-color);
+}
+
+.text-field--filled .text-field__input {
+  background-color: var(--filled-bg, #f8f9fa);
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--text-field-border-color);
+  border-radius: 4px 4px 0 0;
+}
+
+.text-field--standard .text-field__input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--text-field-border-color);
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Adornment styles */
+.text-field__adornment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary-color, #6c757d);
+  flex-shrink: 0;
+}
+
+.text-field__adornment--start {
+  padding-right: var(--text-field-padding-x);
+}
+
+.text-field__adornment--end {
+  padding-left: var(--text-field-padding-x);
+}
+
+/* Error state */
+.text-field--error .text-field__input {
+  border-color: var(--text-field-error-color);
+}
+
+.text-field--error .text-field__input:focus {
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+}
+
+/* Disabled state */
+.text-field--disabled .text-field__input {
+  background-color: var(--text-field-disabled-bg);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Helper text */
+.text-field__helper-text {
+  margin: 0;
+  font-size: 0.75em;
+  color: var(--text-secondary-color, #6c757d);
+  min-height: 1em; /* Prevent layout shift when error appears */
+}
+
+/* Dark mode adjustments */
+.app.dark {
+  --text-field-border-color: var(--border-color, #495057);
+  --text-field-bg-color: var(--background-color, #212529);
+  --text-field-disabled-bg: var(--disabled-bg, #343a40);
+  --text-field-text-color: var(--text-color, #f8f9fa);
+}

@@ -26,9 +26,15 @@ nav {
   text-decoration: none;
 }
 
-.nav-links {
+/* .nav-links {
   display: flex;
   gap: 2rem;
+} */
+
+.nav-links,
+.nav-actions {
+  display: flex;
+  gap: 1rem;
 }
 
 .nav-links a {
@@ -115,10 +121,14 @@ nav {
 /* Responsive Styles */
 
 @media (max-width: 768px) {
-  .nav-links,
+  /* .nav-links {
+    display: none;
+  }
+
   .nav-actions {
     display: none;
   }
+
 
   .mobile-menu-button {
     display: block;
@@ -126,6 +136,19 @@ nav {
 
   .mobile-menu {
     display: flex;
+  } */
+
+  .nav-links,
+  .nav-actions {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex !important;
   }
 
   .nav-container {
