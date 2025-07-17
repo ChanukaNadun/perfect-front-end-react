@@ -5,6 +5,8 @@ import { Button } from "./components/common/Button";
 import { Layout } from "./components/layout/Layout";
 import "./App.css"
 import { TextField } from "./components/common/TextField";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
   const navLinks = [
@@ -52,24 +54,36 @@ const App = () => {
 
           <section className="features">
             <h2>TextFields</h2>
-            {/*  Basic usage */}
-            <TextField label="Email" id="email" />
-            {/* With error state */}
+            {/* Basic usage */}
             <TextField
-              label="Password"
+              id="email"
+              label="Email Address"
+              placeholder="Enter your email"
+              startAdornment={<FontAwesomeIcon icon={faSearch} />}
+              endAdornment={<span>@example.com</span>}
+            />
+            {/* With all props */}
+            {/* <TextField
               id="password"
+              label="Password"
               type="password"
-              error
-              helperText="Password must be 8 characters"
-            />
-            {/* With icons */}
-            <TextField
-              label="Search"
-              id="search"
-              // startAdornment={<SearchIcon />}
-            />
-            {/* Full width disabled field */}
-            <TextField label="Username" id="username" fullWidth disabled />
+              variant="filled"
+              size="large"
+              fullWidth
+              error={errors.password}
+              helperText={
+                errors.password ? "Invalid password" : "Must be 8+ characters"
+              }
+              startAdornment={<LockIcon />}
+              endAdornment={
+                <button type="button" onClick={togglePasswordVisibility}>
+                  {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+                </button>
+              }
+              value={password}
+              onChange={handlePasswordChange}
+              onBlur={validatePassword}
+            /> */}
           </section>
         </main>
       </Layout>
