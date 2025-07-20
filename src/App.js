@@ -7,6 +7,7 @@ import "./App.css"
 import { TextField } from "./components/common/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { Dropdown } from "./components/common/DropDown";
 
 const App = () => {
   const navLinks = [
@@ -15,6 +16,8 @@ const App = () => {
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
   ];
+
+  
 
   return (
     <ThemeProvider>
@@ -84,6 +87,16 @@ const App = () => {
               onChange={handlePasswordChange}
               onBlur={validatePassword}
             /> */}
+            <Dropdown
+              options={[
+                { value: "1", label: "Option 1" },
+                { value: "2", label: "Option 2" },
+                { value: "3", label: "Option 3" },
+              ]}
+              // value={selectedValue}
+              // onChange={setSelectedValue}
+              placeholder="Select an option"
+            />
           </section>
         </main>
       </Layout>
