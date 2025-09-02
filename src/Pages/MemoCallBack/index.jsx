@@ -1,4 +1,8 @@
 import React, { useState, useMemo, useCallback } from "react";
+import ExpensiveComponent from "../../components/useMemoAndCallBack/ExpensiveComponent";
+import ParentUseCallback from "../../components/useMemoAndCallBack/ParentUseCallback";
+import ProductList from "../../components/useMemoAndCallBack/ProductList";
+import HeavyComputation from "../../components/useMemoAndCallBack/HeavyComputation";
 
 // 🐢 Simulate a heavy filter function (500ms delay)
 function slowFilter(users, search) {
@@ -27,6 +31,14 @@ export default function MemoCallBack() {
   const [search, setSearch] = useState("");
   const [toggle, setToggle] = useState(false);
   const [selected, setSelected] = useState(null);
+
+  const [count, setCount] = useState(0);
+  const items = ["Banana", "Apple", "Mango", "Orange", "Pineapple"];
+  const numbers = [1, 5, 3, 9, 2, 7];
+
+  const handleChildClick = useCallback(() => {
+    console.log("Child clicked!");
+  }, []);
 
   // ✅ useMemo → avoid re-running slow filter unnecessarily
   const filteredUsers = useMemo(
@@ -59,6 +71,17 @@ export default function MemoCallBack() {
       </ul>
 
       {selected && <p>Selected: {selected.name}</p>}
+
+      <div style={{ padding: "20px" }}>
+        <h2>useMemo & useCallback Playground</h2>
+        <button onClick={() => setCount((c) => c + 1)}>Increase Count</button>
+        <p>Count: {count}</p>
+
+        <ExpensiveComponent numbers={numbers} />
+        <ParentUseCallback onClick={handleChildClick} />
+        <ProductList products={items} />
+      </div>
+      <HeavyComputation />
     </div>
   );
 }
