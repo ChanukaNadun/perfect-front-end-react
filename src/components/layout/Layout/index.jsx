@@ -1,7 +1,8 @@
+import { Outlet } from "react-router-dom";
 import { useThemeColors } from "../../../hooks/useTheme";
 import { Footer } from "../Footer/index.jsx";
 
-export const Layout = ({ children }) => {
+export const Layout = () => {
   const colors = useThemeColors();
 
   return (
@@ -15,7 +16,9 @@ export const Layout = ({ children }) => {
         color: colors.text,
       }}
     >
-      <main style={{ flex: 1 }}>{children}</main>
+      <main style={{ flex: 1 }}>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
