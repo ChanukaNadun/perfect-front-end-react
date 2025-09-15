@@ -13,7 +13,8 @@ function Home() {
        { href: "#pricing", label: "Pricing" },
        { href: "#about", label: "About" },
        { href: "#contact", label: "Contact" },
-       { href: "/memo", label: "Memo" }, // Added duplicate link for testing
+       { href: "/memo", label: "Memo" },
+       { href: "/state", label: "State" }, // Added duplicate link for testing
      ];
   return (
     <div>
