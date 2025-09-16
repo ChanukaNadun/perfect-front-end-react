@@ -3,24 +3,26 @@ import React from "react";
 
 function StateCheck() {
   const [searchName, setSearchName] = useState("");
-  const [filterNames, setFilterNames] = useState("");
+  const [filterNames, setFilterNames] = useState([]);
 
   useEffect(() => {
-    const filterNamesList = [];
+    let filterNamesList = [];
     if(searchName !== "") {
         filterNamesList = people.filter((person) => {
           return person.name.toLowerCase().includes(searchName.toLowerCase());
         });
         setFilterNames(filterNamesList);
+        console.log(filterNamesList, "Filtered Names", searchName);
     } else {
         setFilterNames(people);
+        console.log("No changes");
     }
     
   }, [searchName]);
 
   return (
     <div>
-      <input type="text" placeholder="Search..." onChange={setSearchName} />
+      <input type="text" placeholder="Search..." onChange={(e) =>setSearchName(e.target.value)} />
       {filterNames ? filterNames.map((person, index) => (
         <div key={index}>
           <h3>{person.name}</h3>
