@@ -7,27 +7,44 @@ function StateCheck() {
 
   useEffect(() => {
     let filterNamesList = [];
-    if(searchName !== "") {
-        filterNamesList = people.filter((person) => {
-          return person.name.toLowerCase().includes(searchName.toLowerCase());
-        });
-        setFilterNames(filterNamesList);
-        console.log(filterNamesList, "Filtered Names", searchName);
+    if (searchName !== "") {
+      filterNamesList = people.filter((person) => {
+        return (
+          person.name.toLowerCase().includes(searchName.toLowerCase()) ||
+          person.city.toLowerCase().includes(searchName.toLowerCase())
+        );
+      });
+      setFilterNames(filterNamesList);
+      console.log(filterNamesList, "Filtered Names", searchName);
     } else {
-        setFilterNames(people);
-        console.log("No changes");
+      setFilterNames(people);
+      console.log("No changes");
     }
-    
   }, [searchName]);
+
+  const clearInput = () => {
+    setFilterNames(people);
+    setSearchName("");
+  };
 
   return (
     <div>
-      <input type="text" placeholder="Search..." onChange={(e) =>setSearchName(e.target.value)} />
-      {filterNames ? filterNames.map((person, index) => (
-        <div key={index}>
-          <h3>{person.name}</h3>
-        </div>
-      )) :(<div>No Data Found</div>)}
+      <input
+        type="text"
+        placeholder="Search..."
+        onChange={(e) => setSearchName(e.target.value)}
+      />
+      {filterNames ? (
+        filterNames.map((person, index) => (
+          <div key={index}>
+            <h3>{person.name}</h3>
+            <h6>{person.city}</h6>
+          </div>
+        ))
+      ) : (
+        <div>No Data Found</div>
+      )}
+      <button onClick={clearInput}>Clear</button>
     </div>
   );
 }
