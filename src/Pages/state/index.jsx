@@ -4,6 +4,11 @@ import React from "react";
 function StateCheck() {
   const [searchName, setSearchName] = useState("");
   const [filterNames, setFilterNames] = useState([]);
+  const [getNewUser, setNewGetUser] = useState([]);
+
+  let users = ["Alice", "Bob", "Charlie"];
+  let scores = [45, 80, 32, 90, 60];
+  let nested = [1, [2, [3, 4]], 5];
 
   useEffect(() => {
     let filterNamesList = [];
@@ -18,17 +23,27 @@ function StateCheck() {
       console.log(filterNamesList, "Filtered Names", searchName);
     } else {
       setFilterNames(people);
-      console.log("No changes");
     }
   }, [searchName]);
 
-  const clearInput = () => {
-    setFilterNames(people);
-    setSearchName("");
+  const ArrayTest = (name) => {
+    let getUser = users.filter((user) => { return user.toLowerCase().includes(name.toLowerCase())});
+    // console.log(getUser, "Get User");
+    setNewGetUser(getUser);
   };
+
+  // useEffect(() => {
+  //   console.log(getNewUser, "Get User");
+  // }, [getNewUser]);
+
+let passing = scores.filter((s) => s >= 50);
+console.log("Passing:", passing);
 
   return (
     <div>
+      <button onClick={() => ArrayTest("bob")}>Test</button>
+      {getNewUser ? <div>{getNewUser[0]} - 5</div> : <div>No Data Found</div>}
+      <br />
       <input
         type="text"
         placeholder="Search..."
@@ -44,7 +59,6 @@ function StateCheck() {
       ) : (
         <div>No Data Found</div>
       )}
-      <button onClick={clearInput}>Clear</button>
     </div>
   );
 }
