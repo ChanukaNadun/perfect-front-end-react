@@ -36,8 +36,8 @@ function StateCheck() {
   //   console.log(getNewUser, "Get User");
   // }, [getNewUser]);
 
-let passing = scores.filter((s) => s >= 50);
-console.log("Passing:", passing);
+let flat = nested.flat(2);
+console.log("Flattened:", flat);
 
   return (
     <div>
