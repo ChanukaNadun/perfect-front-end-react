@@ -20,7 +20,7 @@ function Home() {
      ];
 
      const handleNavigation = () => {
-       navigation("/array-methods");
+       navigation("/study-page");
      }; 
   return (
     <div>
