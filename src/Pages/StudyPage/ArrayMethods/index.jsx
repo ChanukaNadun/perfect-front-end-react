@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { TextField } from '../../components/common/TextField';
-import { Dropdown } from '../../components/common/DropDown';
+import { TextField } from '../../../components/common/TextField';
+import { Dropdown } from '../../../components/common/DropDown';
+
 
 function ArrayMethods() {
   const[filters, setFilters] = useState([]);

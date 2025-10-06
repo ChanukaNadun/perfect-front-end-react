@@ -4,8 +4,9 @@ import Home from "../Pages/home";
 import MemoCallBack from "../Pages/MemoCallBack";
 import { Layout } from "../components/layout/Layout";
 import StateCheck from "../Pages/state";
-import ArrayMethods from "../Pages/ArrayMethods";
 import StudyPage from "../Pages/StudyPage";
+import ArrayMethods from "../Pages/StudyPage/ArrayMethods";
+import GroupAndCount from "../Pages/StudyPage/GroupAndCount";
 
 const Router = () => {
   return (
@@ -16,7 +17,12 @@ const Router = () => {
           <Route path="/memo" element={<MemoCallBack />} />
           <Route path="/state" element={<StateCheck />} />
           <Route path="/study-page" element={<StudyPage />} />
+
+          {/* Study page Items */}
           <Route path="/array-methods" element={<ArrayMethods />} />
+          <Route path="/group-and-count" element={<GroupAndCount />} />
+          {/* ---------------- */}
+
         </Route>
       </Routes>
     </Suspense>

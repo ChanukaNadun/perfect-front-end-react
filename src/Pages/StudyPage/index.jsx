@@ -8,7 +8,7 @@ function StudyPage() {
    const studyPackLinks = [
      { link: "/", label: "Home" },
      { link: "/array-methods", label: "Array Methods" },
-     { link: "/state", label: "State" },
+     { link: "/group-and-count", label: "Group and Count" },
      { link: "/memo", label: "Memo" },
      { link: "/memo", label: "Memo" },
      { link: "/state", label: "State" },
