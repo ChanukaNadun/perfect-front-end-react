@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { TextField } from '../../components/common/TextField';
+import { Dropdown } from '../../components/common/DropDown';
 
 function ArrayMethods() {
   const[filters, setFilters] = useState([]);
@@ -9,10 +10,15 @@ function ArrayMethods() {
   const [max, setMax] = useState([]);
     
     function filterProducts(products2, { text, category, min, max }) {
+      const searchText = String(text).toLowerCase();
+      const categoryText = String(category).toLowerCase();
+      console.log("search Text", text);
+      console.log("search Category", category);
+
       return products2.filter(
         (p) =>
-          (!text || p.name.toLowerCase().includes(text.toLowerCase())) &&
-          (!category || p.category === category) &&
+          (!text || p.name.toLowerCase().includes(searchText)) &&
+          (!category || p.category.toLowerCase().includes(categoryText)) &&
           (!min || p.price >= min) &&
           (!max || p.price <= max)
       );
@@ -31,6 +37,7 @@ function ArrayMethods() {
       } else {
       filtersItems = products2;
       }
+      console.log("filtersItems", filtersItems);
       setFilters(filtersItems);
   }, [text, category, min, max]);
 
@@ -45,14 +52,24 @@ function ArrayMethods() {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        
-        <TextField
+
+        {/* <TextField
           type="text"
           placeholder="Search by Category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
+        /> */}
+
+        <Dropdown
+          options={[
+            { label: "None", value: "" },
+            { label: "Clothes", value: "Clothes" },
+            { label: "Electronics", value: "Electronics" },
+          ]}
+          value={category}
+          onChange={(value) => setCategory(value)}
         />
-        
+
         <TextField
           type="text"
           placeholder="Min Price"
@@ -65,7 +82,6 @@ function ArrayMethods() {
           value={max}
           onChange={(e) => setMax(e.target.value)}
         />
-        
       </div>
       {filters &&
         filters.map((item, index) => (
