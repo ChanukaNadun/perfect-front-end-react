@@ -6,15 +6,22 @@ import { TextField } from "./../components/common/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Dropdown } from "./../components/common/DropDown";
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigation = useNavigate();
      const navLinks = [
        { href: "#features", label: "Features" },
        { href: "#pricing", label: "Pricing" },
        { href: "#about", label: "About" },
        { href: "#contact", label: "Contact" },
-       { href: "/memo", label: "Memo" }, // Added duplicate link for testing
+       { href: "/memo", label: "Memo" },
+       { href: "/state", label: "State" }, // Added duplicate link for testing
      ];
+
+     const handleNavigation = () => {
+       navigation("/study-page");
+     }; 
   return (
     <div>
       <Navbar links={navLinks} />
@@ -28,7 +35,11 @@ function Home() {
             </p>
             <div className="hero-actions">
               <Button size="large">Get Started</Button>
-              <Button variant="secondary" size="large">
+              <Button
+                onClick={handleNavigation}
+                variant="secondary"
+                size="large"
+              >
                 Learn More
               </Button>
             </div>
